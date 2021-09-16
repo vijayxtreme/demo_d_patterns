@@ -35,6 +35,12 @@ class Profit {
     product.price = product.price * 2;
   }
 }
+const comments = `/* Promotes "loose coupling" between 
+subscribers and observers -- Observers typically hold 
+state, while subscribers can "watch" an observer and 
+upon state change respond appropriately.  Add and 
+subtract subscribers on the fly  (e.g. React state, MVC) - 
+and the app will remain stable.  (Efficient app) */`;
 
-const output = concatAndOutput(Product, Fees, Profit);
+const output = concatAndOutput(comments, Product, Fees, Profit);
 export default output;

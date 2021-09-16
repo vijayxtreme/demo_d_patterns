@@ -21,5 +21,10 @@ class Driver {
   }
 }
 
-const output = concatAndOutput(Car, CarProxy, Driver);
+const comments = `/* Code is received by an in-between class 
+or method and then based on logic executed or 
+directed elsewhere.  (E.g. fetch requests can be grouped 
+together via a proxy to reduce constant pinging of an API). */`;
+
+const output = concatAndOutput(comments, Car, CarProxy, Driver);
 export default output;

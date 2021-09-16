@@ -39,7 +39,12 @@ class CheeseDecorator extends PastaDecorator {
   }
 }
 
+const comments = `/* Augment code at runtime.  Rather than writing 
+a lot of overhead initially; you keep code simple add customization
+on the fly. (Helps app performance) */`;
+
 const output = concatAndOutput(
+  comments,
   Pasta,
   Penne,
   PastaDecorator,

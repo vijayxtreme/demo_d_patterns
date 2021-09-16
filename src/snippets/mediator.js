@@ -24,5 +24,11 @@ class Airplane {
   }
 }
 
-const output = concatAndOutput(TrafficTower, Airplane);
+const comments = `/* Handles communication between components, 
+as a single source of truth. This allows other components to 
+remain simple, while the complexity of handling communication 
+is handled in one area.  (Easy pattern to follow, may lead 
+to redundant code over time). */`;
+
+const output = concatAndOutput(comments, TrafficTower, Airplane);
 export default output;

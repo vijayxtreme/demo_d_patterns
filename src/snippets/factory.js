@@ -1,20 +1,68 @@
 import { concatAndOutput } from "../util";
 
-class BmwFactory {
-  static create(type) {
-    if (type === "X5") return new Bmw(type, 108000, 300);
-    if (type === "X6") return new Bmw(type, 111000, 320);
+class BODiTealium {
+  constructor() {
+    this.bodiData = this.setup();
+  }
+  setup() {
+    console.log("making tealium data for BODi");
+    return {
+      section: "bodi",
+    };
   }
 }
 
-class Bmw {
-  constructor(model, price, maxSpeed) {
-    this.model = model;
-    this.price = price;
-    this.maxSpeed = maxSpeed;
+class GroupsTealium {
+  constructor() {
+    this.groupsData = this.setup();
+  }
+  setup() {
+    console.log("making tealium data for Groups");
+    return {
+      section: "groups",
+    };
   }
 }
+const TealiumFactory = `class TealiumFactory {
+  static factory = (type) => { 
+    let data = {}
+    switch (type) {
+      case "bodi": {
+        data = new BODiTealium();
+        break;
+      }
+      case "groups": {
+        data = new GroupsTealium();
+        break;
+      }
+      default: {
+        throw new Error("factory not implemented");
+      }
+    }
+    return {
+      ...TealiumFactory.setup(),
+      ...data
+    }
+  };
+  static setup() {
+    console.log("making initial data for app");
+    return {
+      userGUID: '1234',
+      timestamp: new Date()
+    }
+  }
+}`;
 
-const output = concatAndOutput(BmwFactory, Bmw);
+const comments = `/* Abstract parts of building a component are 
+housed in a singular class, then later "per request" 
+can produce custom and desired components. Downside - classes
+add overhead and you can build this much easier with functions */`;
+
+const output = concatAndOutput(
+  comments,
+  BODiTealium,
+  GroupsTealium,
+  TealiumFactory
+);
 
 export default output;

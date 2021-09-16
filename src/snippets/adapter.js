@@ -29,7 +29,11 @@ class JediAdapter {
     return this.jedi.attackWithSaber();
   }
 }
+const comments = `/* When an application may need to talk to 
+another application (or different codebase), but an API is 
+incompatible.  The adapter translates "requests" between one 
+application to another. */`;
 
-const output = concatAndOutput(Soldier, Jedi, JediAdapter);
+const output = concatAndOutput(comments, Soldier, Jedi, JediAdapter);
 
 export default output;

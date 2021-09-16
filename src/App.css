@@ -7,9 +7,13 @@
 }
 
 .App .container {
-  width: 720px;
+  width: 750px;
   padding-top: 2rem;
   padding-bottom: 4rem;
+}
+.App h1 a {
+  color: initial;
+  text-decoration: none;
 }
 
 .menu {
@@ -45,7 +49,7 @@ footer {
   font-style: italic;
 }
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 749px) {
   .App .container {
     width: calc(100% - 40px);
     padding-left: 20px;

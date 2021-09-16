@@ -8,14 +8,19 @@ import {
 import Page from "./page";
 import "./App.css";
 const menu = [
-  "singleton",
-  "factory",
-  "iterator",
-  "decorator",
-  "proxy",
-  "mediator",
   "adapter",
+  "command",
+  "composite",
+  "decorator",
+  "facade",
+  "factory",
+  "flyweight",
+  "iterator",
+  "mediator",
   "observer",
+  "proxy",
+  "singleton",
+  "strategy",
 ];
 
 function Container() {
@@ -24,9 +29,6 @@ function Container() {
   return (
     <>
       <ul className="menu">
-        <li>
-          <Link to="/">home</Link>
-        </li>
         {menu.map((item) => (
           <li key={item} className={`${item === match ? "active" : ""}`}>
             <Link to={`/${item}`}>{item}</Link>
@@ -38,11 +40,17 @@ function Container() {
           <div>
             <h3>^Select a choice from menu</h3>
             <p>
-              <img
-                alt="Watch the patterns"
-                title="You will like ze patterns"
-                src="https://media2.giphy.com/media/3NeSk2IVEd2FYUQEcM/giphy.gif"
-              />
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://slides.com/vmenonbb/design-patterns-at-beachbody/"
+              >
+                <img
+                  alt="Watch the patterns grow"
+                  title="You will like ze patterns"
+                  src="https://media2.giphy.com/media/3NeSk2IVEd2FYUQEcM/giphy.gif"
+                />
+              </a>
             </p>
           </div>
         </Route>
@@ -59,41 +67,57 @@ function App() {
     <div className="App">
       <Router>
         <div className="container">
-          <h1>JavaScript Design Patterns</h1>
+          <h1>
+            <Link to="/">JavaScript Design Patterns</Link>
+          </h1>
           <Container />
           <footer>
-            Sources:{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/fbeline/design-patterns-JS"
-            >
-              fbeline
-            </a>
-            ,{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/davemcg3/design_patterns"
-            >
-              davemcg3
-            </a>
-            ,{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.oreilly.com/library/view/javascript-patterns/9781449399115/"
-            >
-              Stoyan Stefanov
-            </a>
-            ,{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/vijayxtreme"
-            >
-              vmenon
-            </a>
+            <p>
+              Demoed at the Beachbody Let's Learn on Sept 17, 2021. Slides
+              available{" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://slides.com/vmenonbb/design-patterns-at-beachbody/"
+              >
+                here
+              </a>
+              .
+            </p>
+            <p>
+              Sources:
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/fbeline/design-patterns-JS"
+              >
+                fbeline
+              </a>
+              ,{" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/davemcg3/design_patterns"
+              >
+                davemcg3
+              </a>
+              ,{" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.oreilly.com/library/view/javascript-patterns/9781449399115/"
+              >
+                Stoyan Stefanov
+              </a>
+              ,{" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/vijayxtreme"
+              >
+                vmenon
+              </a>
+            </p>
           </footer>
         </div>
       </Router>
