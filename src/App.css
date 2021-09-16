@@ -7,6 +7,48 @@
 }
 
 .App .container {
-  min-width: 480px;
-  padding-top: 40px;
+  width: 720px;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.menu {
+  padding: 0;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu li:after {
+  content: " | ";
+}
+
+.menu li:last-child:after {
+  content: "";
+}
+
+a {
+  color: blue;
+}
+
+.menu li.active a,
+a:hover {
+  color: red;
+}
+
+.text-center {
+  text-align: center;
+}
+
+footer {
+  font-style: italic;
+}
+
+@media screen and (max-width: 719px) {
+  .App .container {
+    width: calc(100% - 40px);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
