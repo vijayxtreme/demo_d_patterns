@@ -81,7 +81,7 @@ function App() {
               .
             </p>
             <p>
-              Sources:
+              Sources:{" "}
               <a
                 target="_blank"
                 rel="noreferrer"
