@@ -1,17 +1,26 @@
 import { concatAndOutput } from "../util";
 
-class Iterator {
-  constructor(el) {
+class MusicPlayer {
+  constructor() {
     this.index = 0;
-    this.elements = el;
+    //music can come from an API call
+    this.stations = [1, 2, 3, 4];
   }
-
-  next() {
-    return this.elements[this.index++];
+  rewind() {
+    console.log(`--rewind!`);
+    this.index = 0;
   }
-
-  hasNext() {
-    return this.index < this.elements.length;
+  nextSong() {
+    if (this.hasNextSong() || this.index === this.stations.length - 1) {
+      return this.stations[this.index++];
+    }
+    if (this.index > this.stations.length - 1) {
+      this.rewind();
+      return this.stations[this.index++];
+    }
+  }
+  hasNextSong() {
+    return this.stations[this.index + 1];
   }
 }
 
@@ -20,6 +29,6 @@ having data mapped in several areas, you can hold it in a central
 iterator and provide methods (like next and previous) to 
 return information as needed (keeps data in a central area) */`;
 
-const output = concatAndOutput(comments, Iterator);
+const output = concatAndOutput(comments, MusicPlayer);
 
 export default output;
