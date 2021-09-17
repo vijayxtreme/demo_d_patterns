@@ -41,11 +41,14 @@ class MusicPlayer {
   }
 }
 
+const example = `const mp = new MusicPlayer()
+mp.nextSong()`;
+
 const comments = `/* Used often for working with data; rather than 
 having data mapped in several areas, you can hold it in a central 
 iterator and provide methods (like next and previous) to 
 return information as needed (keeps data in a central area) */`;
 
-const output = concatAndOutput(comments, MusicPlayer);
+const output = concatAndOutput(comments, MusicPlayer, example);
 
 export default output;

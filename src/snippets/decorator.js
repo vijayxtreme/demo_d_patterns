@@ -28,10 +28,16 @@ const Form = `class Form {
   }
 }`;
 
+const example = `const form = new Form();
+form.decorate("inputForm");
+form.decorate("submitButton");
+form.decorate("bodi");
+form.buildForm();`;
+
 const comments = `/* Augment code at runtime.  Rather than writing 
 a lot of overhead initially; you keep code simple add customization
 on the fly. (Helps app performance) */`;
 
-const output = concatAndOutput(comments, Form);
+const output = concatAndOutput(comments, Form, example);
 
 export default output;

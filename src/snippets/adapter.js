@@ -2,42 +2,61 @@ import { concatAndOutput } from "../util";
 
 class TealiumNew {
   //the new api
-  pageView() {
-    console.log(`---page view the new way`);
+  pageView(data) {
+    console.log(`---page view the new way`, data);
   }
-
-  pageClick() {
-    console.log(`---page click the new way`);
+  pageClick(data) {
+    console.log(`---page click the new way`, data);
   }
 }
 
 class TealiumLegacy {
   //we still need to support the old way sometimes
-  view() {
-    console.log(`---page view the old way, but this method is deprecated`);
+  view(data) {
+    console.log(`---view deprecated way`, data);
   }
-  event() {
-    console.log(`---page click the old way, but this method is deprecated`);
+  event(data) {
+    console.log(`---click deprecated way`, data);
   }
 }
-
-class TealiumAdapter {
+const TealiumAdapter = `class TealiumAdapter {
   constructor(tealiumOld) {
     this.tealiumOld = tealiumOld;
   }
-
-  pageView() {
-    //our client will continue to call the new method per our interface
-    //but this adapter will help translate new to old for the time being
-    this.tealiumOld.view();
+  toSnake(data) {
+    const workout = { workout: data.workout?.replace(/\\s/g, "-") };
+    return { ...data, ...workout };
   }
-
-  pageClick() {
-    //our client will continue to call the new method per our interface
-    //but this adapter will help translate new to old for the time being
-    return this.tealiumOld.event();
+  pageView(data) {
+    console.log('--make it work for legacy');
+    const formattedData = this.toSnake(data);
+    this.tealiumOld.view(formattedData);
   }
-}
+  pageClick(data) {
+    console.log('--make it work for legacy');
+    const formattedData = this.toSnake(data);
+    return this.tealiumOld.event(formattedData);
+  }
+}`;
+
+const example = `const tealNew = new TealiumNew();
+const viewData = {
+  page_name: "lo-landing",
+  timestamp: new Date(),
+  user: "1234",
+};
+const clickData = {
+  page_name: "letsjumpin",
+  timestamp: new Date(),
+  user: "1234",
+  workout: "Let's Jump In",
+};
+
+tealNew.pageView(viewData);
+tealNew.pageClick(clickData);
+const tealLegacy = new TealiumAdapter(new TealiumLegacy());
+tealLegacy.pageClick(clickData);`;
+
 const comments = `/* When an application may need to talk to 
 another application (or different codebase), but an API is 
 incompatible.  The adapter translates "requests" between one 
@@ -47,7 +66,8 @@ const output = concatAndOutput(
   comments,
   TealiumNew,
   TealiumLegacy,
-  TealiumAdapter
+  TealiumAdapter,
+  example
 );
 
 export default output;

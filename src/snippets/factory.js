@@ -53,6 +53,8 @@ const TealiumFactory = `class TealiumFactory {
   }
 }`;
 
+const example = `TealiumFactory.factory('bodi');`;
+
 const comments = `/* Abstract parts of building a component are 
 housed in a singular class, then later "per request" 
 can produce custom and desired components. Downside - classes
@@ -62,7 +64,8 @@ const output = concatAndOutput(
   comments,
   BODiTealium,
   GroupsTealium,
-  TealiumFactory
+  TealiumFactory,
+  example
 );
 
 export default output;
