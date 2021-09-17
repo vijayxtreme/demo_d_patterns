@@ -80,8 +80,9 @@ function App() {
               </a>
               .
             </p>
+            <p>Want even more design patterns? Check out below</p>
             <p>
-              Sources:{" "}
+              Sources, Inspiration:{" "}
               <a
                 target="_blank"
                 rel="noreferrer"
