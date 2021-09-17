@@ -1,4 +1,5 @@
 import singleton from "./singleton";
+import facade from "./facade";
 import factory from "./factory";
 import iterator from "./iterator";
 import decorator from "./decorator";
@@ -9,6 +10,7 @@ import observer from "./observer";
 
 const data = {
   factory,
+  facade,
   singleton,
   iterator,
   decorator,

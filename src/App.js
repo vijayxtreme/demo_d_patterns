@@ -9,18 +9,14 @@ import Page from "./page";
 import "./App.css";
 const menu = [
   "adapter",
-  "command",
-  "composite",
   "decorator",
   "facade",
   "factory",
-  "flyweight",
   "iterator",
   "mediator",
   "observer",
   "proxy",
   "singleton",
-  "strategy",
 ];
 
 function Container() {

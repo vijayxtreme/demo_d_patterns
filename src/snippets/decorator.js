@@ -1,55 +1,37 @@
 import { concatAndOutput } from "../util";
-
-class Pasta {
+const Form = `class Form {
   constructor() {
-    this.price = 0;
+    this.decorators = [];
+    this.output = "base form";
   }
-  getPrice() {
-    return this.price;
-  }
-}
+  static decorators = {
+    bodi: {
+      buildForm: (input) => "Applied Bodi logo. " + input,
+    },
+    inputForm: {
+      buildForm: (input) => "Added an input Form. " + input,
+    },
+    submitButton: {
+      buildForm: (input) => "Added a submit button. " + input,
+    },
+  };
 
-class Penne extends Pasta {
-  constructor() {
-    super();
-    this.price = 8;
+  decorate(decorator) {
+    this.decorators.push(decorator);
   }
-}
+  buildForm() {
+    this.decorators.forEach((decorator) => {
+      this.output = Form.decorators[decorator].buildForm(this.output);
+    });
 
-class PastaDecorator extends Pasta {
-  constructor(pasta) {
-    super();
-    this.pasta = pasta;
+    return this.output;
   }
-
-  getPrice() {
-    return this.pasta.getPrice();
-  }
-}
-
-class SauceDecorator extends PastaDecorator {
-  getPrice() {
-    return super.getPrice() + 5;
-  }
-}
-
-class CheeseDecorator extends PastaDecorator {
-  getPrice() {
-    return super.getPrice() + 3;
-  }
-}
+}`;
 
 const comments = `/* Augment code at runtime.  Rather than writing 
 a lot of overhead initially; you keep code simple add customization
 on the fly. (Helps app performance) */`;
 
-const output = concatAndOutput(
-  comments,
-  Pasta,
-  Penne,
-  PastaDecorator,
-  SauceDecorator,
-  CheeseDecorator
-);
+const output = concatAndOutput(comments, Form);
 
 export default output;
