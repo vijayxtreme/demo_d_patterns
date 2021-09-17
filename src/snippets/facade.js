@@ -42,6 +42,8 @@ get('https://jsonplaceholder.typicode.com/todos/1', handler)`;
 
 const comment = `/* A pattern to provide a simpler interface
 to a more complex API, set of methods or object. (e.g. jQuery 
-provides facade methods to help work with DOM cross-browser. */`;
+provides facade methods to help work with DOM cross-browser. 
+Check out blue-label's src/api/RestClient.js for some more 
+ideas on facades. */`;
 const output = concatAndOutput(comment, get, example);
 export default output;
