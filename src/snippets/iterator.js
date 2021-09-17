@@ -5,18 +5,35 @@ class MusicPlayer {
     this.index = 0;
     //music can come from an API call
     this.stations = [1, 2, 3, 4];
+    this.incrementIndex = this.incrementIndex.bind(this);
   }
   rewind() {
     console.log(`--rewind!`);
     this.index = 0;
   }
+  playSong(cb) {
+    console.log(this.stations[this.index]);
+    cb();
+    return;
+  }
+  atlastSong() {
+    return this.index === this.stations.length - 1;
+  }
+  outOfBounds() {
+    return this.index >= this.stations.length;
+  }
+  incrementIndex() {
+    this.index++;
+  }
   nextSong() {
-    if (this.hasNextSong() || this.index === this.stations.length - 1) {
-      return this.stations[this.index++];
+    if (this.hasNextSong() || this.atlastSong()) {
+      this.playSong(this.incrementIndex);
+      return;
     }
-    if (this.index > this.stations.length - 1) {
+    if (this.outOfBounds()) {
       this.rewind();
-      return this.stations[this.index++];
+      this.playSong(this.incrementIndex);
+      return;
     }
   }
   hasNextSong() {
