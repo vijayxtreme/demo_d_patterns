@@ -1,6 +1,6 @@
 import { concatAndOutput } from "../util";
 
-class BODiTealium {
+const BODiTealium = `class BODiTealium {
   constructor() {
     this.bodiData = this.setup();
   }
@@ -10,9 +10,9 @@ class BODiTealium {
       section: "bodi",
     };
   }
-}
+}`;
 
-class GroupsTealium {
+const GroupsTealium = `class GroupsTealium {
   constructor() {
     this.groupsData = this.setup();
   }
@@ -22,7 +22,7 @@ class GroupsTealium {
       section: "groups",
     };
   }
-}
+}`;
 const TealiumFactory = `class TealiumFactory {
   static factory = (type) => { 
     let data = {}
