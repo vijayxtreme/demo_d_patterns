@@ -80,6 +80,16 @@ function App() {
               </a>
               .
             </p>
+            <p>
+              Github source code here:{" "}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/vijayxtreme/demo_d_patterns"
+              >
+                https://github.com/vijayxtreme/demo_d_patterns
+              </a>
+            </p>
             <p>Want even more design patterns? Check out below</p>
             <p>
               Sources, Inspiration:{" "}
