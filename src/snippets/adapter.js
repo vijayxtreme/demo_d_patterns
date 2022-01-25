@@ -1,24 +1,24 @@
 import { concatAndOutput } from "../util";
 
-class TealiumNew {
+const TealiumNew = `class TealiumNew {
   //the new api
   pageView(data) {
-    console.log(`---page view the new way`, data);
+    console.log('---page view the new way', data);
   }
   pageClick(data) {
-    console.log(`---page click the new way`, data);
+    console.log('---page click the new way', data);
   }
-}
+}`;
 
-class TealiumLegacy {
+const TealiumLegacy = `class TealiumLegacy {
   //we still need to support the old way sometimes
   view(data) {
-    console.log(`---view deprecated way`, data);
+    console.log('---view deprecated way', data);
   }
   event(data) {
-    console.log(`---click deprecated way`, data);
+    console.log('---click deprecated way', data);
   }
-}
+}`;
 const TealiumAdapter = `class TealiumAdapter {
   constructor(tealiumOld) {
     this.tealiumOld = tealiumOld;

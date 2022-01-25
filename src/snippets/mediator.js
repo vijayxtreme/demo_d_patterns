@@ -1,15 +1,15 @@
 import { concatAndOutput } from "../util";
 
-class BeachBodyClass {
+const BeachBodyClass = `class BeachBodyClass {
   constructor() {
-    console.log(`----starting class!`);
+    console.log('----starting class!');
   }
   static displayParticipants(attendees) {
-    console.log(`---attendees in class`, attendees);
-    console.log(`---there are ${attendees.length} in class`);
+    console.log('---attendees in class', attendees);
+    console.log('---there are ' + attendees.length + ' in class');
   }
-}
-class AttendanceTaker {
+}`;
+const AttendanceTaker = `class AttendanceTaker {
   static attendees = [];
 
   static attend(participant) {
@@ -21,8 +21,9 @@ class AttendanceTaker {
     this.attendees = this.attendees.filter((person) => person !== participant);
     BeachBodyClass.displayParticipants(this.attendees);
   }
-}
-class Participant {
+}`;
+
+const Participant = `class Participant {
   constructor(name) {
     this.name = name;
     AttendanceTaker.attend(this.name);
@@ -30,7 +31,7 @@ class Participant {
   dropOff() {
     AttendanceTaker.remove(this.name);
   }
-}
+}`;
 
 const example = `const p1 = new Participant("Tomas");
 const p2 = new Participant("Jorge");

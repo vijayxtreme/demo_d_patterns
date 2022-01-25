@@ -1,21 +1,21 @@
 import { concatAndOutput } from "../util";
-class ClassInSchedule {
+const ClassInSchedule = `class ClassInSchedule {
   constructor() {
     this.participants = [];
-    console.log(`--A new class is coming up! want to be notified?`);
+    console.log('--A new class is coming up! want to be notified?');
   }
   newClassStarted() {
-    console.log(`--A new class just started`);
+    console.log('--A new class just started');
     this.publish("class-started");
   }
 
   subscribe(subscriber) {
-    console.log(`${subscriber.name} joined the notification list`);
+    console.log(subscriber.name + 'joined the notification list');
     this.participants.push(subscriber);
   }
 
   unsubscribe(subscriber) {
-    console.log(`${subscriber.name} unsubscribed the notification list`);
+    console.log(subscriber.name + 'unsubscribed the notification list');
     this.participants = this.participants.filter((s) => s !== subscriber);
   }
 
@@ -28,15 +28,15 @@ class ClassInSchedule {
         break;
     }
   }
-}
-class Participant {
+}`;
+const Participant = `class Participant {
   constructor(name) {
     this.name = name;
   }
   getUpdate() {
-    console.log(`---${this.name} got a notification about the class update`);
+    console.log('---' + this.name + ' got a notification about the class update');
   }
-}
+}`;
 
 const example = `const beachBodyClass = new ClassInSchedule();
 const p1 = new Participant("Joe");

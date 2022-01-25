@@ -1,6 +1,6 @@
 import { concatAndOutput } from "../util";
 
-class MusicPlayer {
+const MusicPlayer = `class MusicPlayer {
   constructor() {
     this.index = 0;
     //music can come from an API call
@@ -8,7 +8,7 @@ class MusicPlayer {
     this.incrementIndex = this.incrementIndex.bind(this);
   }
   rewind() {
-    console.log(`--rewind!`);
+    console.log('--rewind!');
     this.index = 0;
   }
   playSong(cb) {
@@ -39,7 +39,7 @@ class MusicPlayer {
   hasNextSong() {
     return this.stations[this.index + 1];
   }
-}
+}`;
 
 const example = `const mp = new MusicPlayer()
 mp.nextSong()`;

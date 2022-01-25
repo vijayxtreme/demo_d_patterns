@@ -1,24 +1,24 @@
 import { concatAndOutput } from "../util";
 
-class NewFeature {
+const NewFeature = `class NewFeature {
   static showNewFeature() {
-    return `Check it out!`;
+    return 'Check it out!';
   }
-}
+}`;
 
-class NewFeatureProxy {
+const NewFeatureProxy = `class NewFeatureProxy {
   static featureCheck(participant) {
     return participant.clubStatus === "registered"
       ? NewFeature.showNewFeature()
-      : `Sign Up Page`;
+      : 'Sign Up Page';
   }
-}
+}`;
 
-class Participant {
+const Participant = `class Participant {
   constructor(status = "unregistered") {
     this.clubStatus = status;
   }
-}
+}`;
 
 const example = `const p1 = new Participant();
 const result = NewFeatureProxy.featureCheck(p1);

@@ -1,6 +1,6 @@
 import { concatAndOutput } from "../util";
 
-class BeachBodyUtils {
+const BeachBodyUtils = `class BeachBodyUtils {
   constructor() {
     if (typeof BeachBodyUtils.instance === "object") {
       return BeachBodyUtils.instance;
@@ -10,9 +10,9 @@ class BeachBodyUtils {
     return this;
   }
   setup() {
-    console.log(`setting up utils once`);
+    console.log('setting up utils once');
   }
-}
+}`;
 
 const BeachBodyUtilsv1 = `const BeachBodyUtilsv1 = (function() {
   // using closure to mimic private variables and methods
